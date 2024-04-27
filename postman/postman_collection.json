@@ -1,0 +1,582 @@
+{
+	"info": {
+		"_postman_id": "78984145-0e38-49dd-b018-d3faf1851a9c",
+		"name": "Octocat Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "octocat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// status code and content type verification:\r",
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content type should be json\", function () {\r",
+							"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"// performance verification:\r",
+							"pm.test(\"Response time is less than 3000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+							"});\r",
+							"\r",
+							"// setting name parameter to the environment\r",
+							"pm.environment.set(\"Environment 1\", pm.response.json().name);\r",
+							"\r",
+							"// creating base url for shorter assertions:\r",
+							"var baseUrl = \"https://api.github.com/users/octocat\";\r",
+							"\r",
+							"\r",
+							"// assertions for response fields:\r",
+							"pm.test(\"Verify login\", function () {\r",
+							"    pm.expect(pm.response.json().login).to.eql(\"octocat\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify id\", function () {\r",
+							"    pm.expect(pm.response.json().id).to.eql(583231);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify node_id\", function () {\r",
+							"    pm.expect(pm.response.json().node_id).to.eql(\"MDQ6VXNlcjU4MzIzMQ==\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify avatar_url\", function () {\r",
+							"    pm.expect(pm.response.json().avatar_url).to.eql(\"https://avatars.githubusercontent.com/u/583231?v=4\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify gravatar_id\", function () {\r",
+							"    pm.expect(pm.response.json().gravatar_id).to.eql(\"\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify url\", function () {\r",
+							"    pm.expect(pm.response.json().url).to.eql(baseUrl);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify html_url\", function () {\r",
+							"    pm.expect(pm.response.json().html_url).to.eql(\"https://github.com/octocat\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify followers_url\", function () {\r",
+							"    pm.expect(pm.response.json().followers_url).to.eql(baseUrl + \"/followers\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify following_url\", function () {\r",
+							"    pm.expect(pm.response.json().following_url).to.eql(baseUrl + \"/following{/other_user}\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify gists_url\", function () {\r",
+							"    pm.expect(pm.response.json().gists_url).to.eql(baseUrl + \"/gists{/gist_id}\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify starred_url\", function () {\r",
+							"    pm.expect(pm.response.json().starred_url).to.eql(baseUrl + \"/starred{/owner}{/repo}\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify subscriptions_url\", function () {\r",
+							"    pm.expect(pm.response.json().subscriptions_url).to.eql(baseUrl + \"/subscriptions\");\r",
+							"});    \r",
+							"\r",
+							"pm.test(\"Verify organizations_url\", function () {\r",
+							"    pm.expect(pm.response.json().organizations_url).to.eql(baseUrl + \"/orgs\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify repos_url\", function () {\r",
+							"    pm.expect(pm.response.json().repos_url).to.eql(baseUrl + \"/repos\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify events_url\", function () {\r",
+							"    pm.expect(pm.response.json().events_url).to.eql(baseUrl + \"/events{/privacy}\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify received_events_url\", function () {\r",
+							"    pm.expect(pm.response.json().received_events_url).to.eql(baseUrl + \"/received_events\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify type\", function () {\r",
+							"    pm.expect(pm.response.json().type).to.eql(\"User\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify site_admin\", function () {\r",
+							"    pm.expect(pm.response.json().site_admin).to.eql(false);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify name\", function () {\r",
+							"    pm.expect(pm.response.json().name).to.eql(\"The Octocat\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify company\", function () {\r",
+							"    pm.expect(pm.response.json().company).to.eql(\"@github\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify blog\", function () {\r",
+							"    pm.expect(pm.response.json().blog).to.eql(\"https://github.blog\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify location\", function () {\r",
+							"    pm.expect(pm.response.json().location).to.eql(\"San Francisco\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify email\", function () {\r",
+							"    pm.expect(pm.response.json().email).to.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify hireable\", function () {\r",
+							"    pm.expect(pm.response.json().hireable).to.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify bio\", function () {\r",
+							"    pm.expect(pm.response.json().bio).to.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify twitter_username\", function () {\r",
+							"    pm.expect(pm.response.json().twitter_username).to.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify public_repos\", function () {\r",
+							"    pm.expect(pm.response.json().public_repos).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify public_gists\", function () {\r",
+							"    pm.expect(pm.response.json().public_gists).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify followers\", function () {\r",
+							"    pm.expect(pm.response.json().public_repos).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify following\", function () {\r",
+							"    pm.expect(pm.response.json().public_gists).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify created_at format\", function () {\r",
+							"    pm.expect(pm.response.json().created_at).to.eq('2011-01-25T18:44:36Z');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify updated_at format\", function () {\r",
+							"    pm.expect(pm.response.json().updated_at).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$/);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/octocat",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"octocat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "octocat-put-404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// status code and content type verification:\r",
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content type should be json\", function () {\r",
+							"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Verify message\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql(\"Not Found\");\r",
+							"    pm.expect(pm.response.json().documentation_url).to.eql(\"https://docs.github.com/rest\");    \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"octocat\",\r\n    \"id\": 583231,\r\n    \"node_id\": \"MDQ6VXNlcjU4MzIzMQ==\",\r\n    \"avatar_url\": \"https://avatars.githubusercontent.com/u/583231?v=4\",\r\n    \"gravatar_id\": \"\",\r\n    \"url\": \"https://api.github.com/users/octocat\",\r\n    \"html_url\": \"https://github.com/octocat\",\r\n    \"followers_url\": \"https://api.github.com/users/octocat/followers\",\r\n    \"following_url\": \"https://api.github.com/users/octocat/following{/other_user}\",\r\n    \"gists_url\": \"https://api.github.com/users/octocat/gists{/gist_id}\",\r\n    \"starred_url\": \"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\r\n    \"subscriptions_url\": \"https://api.github.com/users/octocat/subscriptions\",\r\n    \"organizations_url\": \"https://api.github.com/users/octocat/orgs\",\r\n    \"repos_url\": \"https://api.github.com/users/octocat/repos\",\r\n    \"events_url\": \"https://api.github.com/users/octocat/events{/privacy}\",\r\n    \"received_events_url\": \"https://api.github.com/users/octocat/received_events\",\r\n    \"type\": \"User\",\r\n    \"site_admin\": false,\r\n    \"name\": \"The Octocat\",\r\n    \"company\": \"@github\",\r\n    \"blog\": \"https://github.blog\",\r\n    \"location\": \"San Francisco\",\r\n    \"email\": null,\r\n    \"hireable\": null,\r\n    \"bio\": null,\r\n    \"twitter_username\": null,\r\n    \"public_repos\": 8,\r\n    \"public_gists\": 8,\r\n    \"followers\": 13255,\r\n    \"following\": 9,\r\n    \"created_at\": \"2011-01-25T18:44:36Z\",\r\n    \"updated_at\": \"2024-04-22T11:20:10Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/users/octocat",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"octocat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "octocat-post-404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// status code and content type verification:\r",
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content type should be json\", function () {\r",
+							"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Verify message\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql(\"Not Found\");\r",
+							"    pm.expect(pm.response.json().documentation_url).to.eql(\"https://docs.github.com/rest\");    \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"octocat\",\r\n    \"id\": 583231,\r\n    \"node_id\": \"MDQ6VXNlcjU4MzIzMQ==\",\r\n    \"avatar_url\": \"https://avatars.githubusercontent.com/u/583231?v=4\",\r\n    \"gravatar_id\": \"\",\r\n    \"url\": \"https://api.github.com/users/octocat\",\r\n    \"html_url\": \"https://github.com/octocat\",\r\n    \"followers_url\": \"https://api.github.com/users/octocat/followers\",\r\n    \"following_url\": \"https://api.github.com/users/octocat/following{/other_user}\",\r\n    \"gists_url\": \"https://api.github.com/users/octocat/gists{/gist_id}\",\r\n    \"starred_url\": \"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\r\n    \"subscriptions_url\": \"https://api.github.com/users/octocat/subscriptions\",\r\n    \"organizations_url\": \"https://api.github.com/users/octocat/orgs\",\r\n    \"repos_url\": \"https://api.github.com/users/octocat/repos\",\r\n    \"events_url\": \"https://api.github.com/users/octocat/events{/privacy}\",\r\n    \"received_events_url\": \"https://api.github.com/users/octocat/received_events\",\r\n    \"type\": \"User\",\r\n    \"site_admin\": false,\r\n    \"name\": \"The Octocat\",\r\n    \"company\": \"@github\",\r\n    \"blog\": \"https://github.blog\",\r\n    \"location\": \"San Francisco\",\r\n    \"email\": null,\r\n    \"hireable\": null,\r\n    \"bio\": null,\r\n    \"twitter_username\": null,\r\n    \"public_repos\": 8,\r\n    \"public_gists\": 8,\r\n    \"followers\": 13255,\r\n    \"following\": 9,\r\n    \"created_at\": \"2011-01-25T18:44:36Z\",\r\n    \"updated_at\": \"2024-04-22T11:20:10Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/users",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "octocat-delete-404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// status code and content type verification:\r",
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content type should be json\", function () {\r",
+							"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Verify message\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql(\"Not Found\");\r",
+							"    pm.expect(pm.response.json().documentation_url).to.eql(\"https://docs.github.com/rest\");    \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/octocat",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"octocat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "octocat webpage",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// status code and content type html verification:\r",
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content type should be html\", function () {\r",
+							"    pm.response.to.have.header('Content-Type', 'text/html; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"// webpage title verification\r",
+							"pm.test(\"Body contains title\", function () {\r",
+							"    var title  = \"<title>octocat (The Octocat) · GitHub</title>\";\r",
+							"    pm.expect(pm.response.text()).to.include(title);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://github.com/octocat",
+					"protocol": "https",
+					"host": [
+						"github",
+						"com"
+					],
+					"path": [
+						"octocat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "octocat /subscriptions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// status code and content type verification:\r",
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content type should be json\", function () {\r",
+							"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify at least one object\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.be.above(0);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/octocat/subscriptions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"octocat",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "octocat /followers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// status code and content type verification:\r",
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content type should be json\", function () {\r",
+							"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify at least one object\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/octocat/followers",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"octocat",
+						"followers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "octocat /repos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// status code and content type verification:\r",
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content type should be json\", function () {\r",
+							"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify at least one object\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.be.above(0);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/octocat/repos?sort=updated&direction=desc",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"octocat",
+						"repos"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "updated"
+						},
+						{
+							"key": "direction",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "octocat /received_events",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// status code and content type verification:\r",
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content type should be json\", function () {\r",
+							"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify at least one object\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/octocat/received_events",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"octocat",
+						"received_events"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

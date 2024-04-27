@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Practice Suite">
+    <test name="API Github Octocat Test">
+        <classes>
+            <class name="octocat.EndpointTest"/>
+            <class name="octocat.EndpointNegativeTest"/>
+        </classes>
+    </test>
+
+</suite>

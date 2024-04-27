@@ -39,7 +39,7 @@ public class EndpointTest {
     @Test(priority = 3)
     public void verifyPerformance() {
         long actualResponseTime = response.getTime();
-        long expectedResponseTime = 3000;
+        long expectedResponseTime = 300;
         Assert.assertTrue(
                 actualResponseTime <= expectedResponseTime,
                 "Response time is greater than " + expectedResponseTime + " milliseconds");

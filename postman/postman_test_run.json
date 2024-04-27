@@ -1,0 +1,597 @@
+{
+	"id": "b0c28447-4ef9-4843-9da1-4823af3c1644",
+	"name": "Octocat Collection",
+	"timestamp": "2024-04-27T07:07:42.989Z",
+	"collection_id": "0-41c7deec-2f20-4584-aa82-95e65b813ff1",
+	"folder_id": 0,
+	"environment_id": "d775418d-2456-4354-8c2c-dcff71eeb572",
+	"totalPass": 59,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "2816538c-3986-44ce-a729-65063a8aaa67",
+			"name": "octocat",
+			"url": "https://api.github.com/users/octocat",
+			"time": 220,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Content type should be json": true,
+				"Response time is less than 3000ms": true,
+				"Verify login": true,
+				"Verify id": true,
+				"Verify node_id": true,
+				"Verify avatar_url": true,
+				"Verify gravatar_id": true,
+				"Verify url": true,
+				"Verify html_url": true,
+				"Verify followers_url": true,
+				"Verify following_url": true,
+				"Verify gists_url": true,
+				"Verify starred_url": true,
+				"Verify subscriptions_url": true,
+				"Verify organizations_url": true,
+				"Verify repos_url": true,
+				"Verify events_url": true,
+				"Verify received_events_url": true,
+				"Verify type": true,
+				"Verify site_admin": true,
+				"Verify name": true,
+				"Verify company": true,
+				"Verify blog": true,
+				"Verify location": true,
+				"Verify email": true,
+				"Verify hireable": true,
+				"Verify bio": true,
+				"Verify twitter_username": true,
+				"Verify public_repos": true,
+				"Verify public_gists": true,
+				"Verify followers": true,
+				"Verify following": true,
+				"Verify created_at format": true,
+				"Verify updated_at format": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type should be json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 3000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify login": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify id": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify node_id": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify avatar_url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify gravatar_id": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify html_url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify followers_url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify following_url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify gists_url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify starred_url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify subscriptions_url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify organizations_url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify repos_url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify events_url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify received_events_url": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify type": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify site_admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify company": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify blog": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify location": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify email": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify hireable": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify bio": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify twitter_username": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify public_repos": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify public_gists": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify followers": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify following": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify created_at format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify updated_at format": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				220
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Content type should be json": true,
+					"Response time is less than 3000ms": true,
+					"Verify login": true,
+					"Verify id": true,
+					"Verify node_id": true,
+					"Verify avatar_url": true,
+					"Verify gravatar_id": true,
+					"Verify url": true,
+					"Verify html_url": true,
+					"Verify followers_url": true,
+					"Verify following_url": true,
+					"Verify gists_url": true,
+					"Verify starred_url": true,
+					"Verify subscriptions_url": true,
+					"Verify organizations_url": true,
+					"Verify repos_url": true,
+					"Verify events_url": true,
+					"Verify received_events_url": true,
+					"Verify type": true,
+					"Verify site_admin": true,
+					"Verify name": true,
+					"Verify company": true,
+					"Verify blog": true,
+					"Verify location": true,
+					"Verify email": true,
+					"Verify hireable": true,
+					"Verify bio": true,
+					"Verify twitter_username": true,
+					"Verify public_repos": true,
+					"Verify public_gists": true,
+					"Verify followers": true,
+					"Verify following": true,
+					"Verify created_at format": true,
+					"Verify updated_at format": true
+				}
+			]
+		},
+		{
+			"id": "0700e837-0487-4365-be7a-838eb385ea05",
+			"name": "octocat-put-404",
+			"url": "https://api.github.com/users/octocat",
+			"time": 144,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code should be 404": true,
+				"Content type should be json": true,
+				"Verify message": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type should be json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				144
+			],
+			"allTests": [
+				{
+					"Status code should be 404": true,
+					"Content type should be json": true,
+					"Verify message": true
+				}
+			]
+		},
+		{
+			"id": "e5c58031-d596-47df-bf7d-c2ec63309412",
+			"name": "octocat-post-404",
+			"url": "https://api.github.com/users",
+			"time": 136,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code should be 404": true,
+				"Content type should be json": true,
+				"Verify message": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type should be json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				136
+			],
+			"allTests": [
+				{
+					"Status code should be 404": true,
+					"Content type should be json": true,
+					"Verify message": true
+				}
+			]
+		},
+		{
+			"id": "76c5a0c5-9bc5-4807-9d86-142a8ccba087",
+			"name": "octocat-delete-404",
+			"url": "https://api.github.com/users/octocat",
+			"time": 138,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code should be 404": true,
+				"Content type should be json": true,
+				"Verify message": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type should be json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				138
+			],
+			"allTests": [
+				{
+					"Status code should be 404": true,
+					"Content type should be json": true,
+					"Verify message": true
+				}
+			]
+		},
+		{
+			"id": "7a1128a7-5988-4123-a5bd-ea10d1345ffc",
+			"name": "octocat webpage",
+			"url": "https://github.com/octocat",
+			"time": 432,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Content type should be html": true,
+				"Body contains title": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type should be html": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains title": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				432
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Content type should be html": true,
+					"Body contains title": true
+				}
+			]
+		},
+		{
+			"id": "560096ac-7ac7-4a47-89fe-e62aa5b76363",
+			"name": "octocat /subscriptions",
+			"url": "https://api.github.com/users/octocat/subscriptions",
+			"time": 355,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Content type should be json": true,
+				"Verify at least one object": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type should be json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify at least one object": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				355
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Content type should be json": true,
+					"Verify at least one object": true
+				}
+			]
+		},
+		{
+			"id": "3a6a314d-353e-40b9-8132-c6c5105a8b38",
+			"name": "octocat /followers",
+			"url": "https://api.github.com/users/octocat/followers",
+			"time": 369,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Content type should be json": true,
+				"Verify at least one object": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type should be json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify at least one object": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				369
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Content type should be json": true,
+					"Verify at least one object": true
+				}
+			]
+		},
+		{
+			"id": "1b2b1ec2-d09b-44d5-9366-a3a4c1a5eeaf",
+			"name": "octocat /repos",
+			"url": "https://api.github.com/users/octocat/repos?sort=updated&direction=desc",
+			"time": 231,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Content type should be json": true,
+				"Verify at least one object": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type should be json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify at least one object": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				231
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Content type should be json": true,
+					"Verify at least one object": true
+				}
+			]
+		},
+		{
+			"id": "0f1a2aba-2b62-4db3-944a-a91285fffdfd",
+			"name": "octocat /received_events",
+			"url": "https://api.github.com/users/octocat/received_events",
+			"time": 323,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Content type should be json": true,
+				"Verify at least one object": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type should be json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify at least one object": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				323
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Content type should be json": true,
+					"Verify at least one object": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2348,
+	"collection": {
+		"requests": [
+			{
+				"id": "2816538c-3986-44ce-a729-65063a8aaa67",
+				"method": "GET"
+			},
+			{
+				"id": "0700e837-0487-4365-be7a-838eb385ea05",
+				"method": "PUT"
+			},
+			{
+				"id": "e5c58031-d596-47df-bf7d-c2ec63309412",
+				"method": "POST"
+			},
+			{
+				"id": "76c5a0c5-9bc5-4807-9d86-142a8ccba087",
+				"method": "DELETE"
+			},
+			{
+				"id": "7a1128a7-5988-4123-a5bd-ea10d1345ffc",
+				"method": "GET"
+			},
+			{
+				"id": "560096ac-7ac7-4a47-89fe-e62aa5b76363",
+				"method": "GET"
+			},
+			{
+				"id": "3a6a314d-353e-40b9-8132-c6c5105a8b38",
+				"method": "GET"
+			},
+			{
+				"id": "1b2b1ec2-d09b-44d5-9366-a3a4c1a5eeaf",
+				"method": "GET"
+			},
+			{
+				"id": "0f1a2aba-2b62-4db3-944a-a91285fffdfd",
+				"method": "GET"
+			}
+		]
+	}
+}
