@@ -22,199 +22,295 @@ public class EndpointTest {
     }
 
     @Test(priority = 1)
-    public void testStatusCode() {
-        Assert.assertEquals(response.statusCode(), 200);
+    public void verifyStatusCode() {
+        int expectedStatusCode = 200;
+        Assert.assertEquals(response.statusCode(), expectedStatusCode);
     }
 
     @Test(priority = 2)
-    public void testContentType() {
+    public void verifyContentType() {
+        String expectedContentType = "application/json";
         Assert.assertEquals(
                 ContentType.JSON.toString(),
-                "application/json",
+                expectedContentType,
                 "Content-Type is not JSON"
         );
     }
 
     @Test(priority = 3)
-    public void testPerformance() {
-        long responseTime = response.getTime();
+    public void verifyPerformance() {
+        long actualResponseTime = response.getTime();
+        long expectedResponseTime = 3000;
         Assert.assertTrue(
-                responseTime <= 3000,
-                "Response time is greater than 3000 milliseconds"
-        );
+                actualResponseTime <= expectedResponseTime,
+                "Response time is greater than " + expectedResponseTime + " milliseconds");
     }
 
     @Test(priority = 4)
-    public void testFieldLogin() {
-        Assert.assertEquals(response.jsonPath().get("login"), "octocat", "Login differs");
+    public void verifyFieldLogin() {
+        String expectedLogin = "octocat";
+        Assert.assertEquals(response.jsonPath().get("login"),
+                expectedLogin,
+                "Login differs");
     }
 
     @Test(priority = 5)
-    public void testFieldId() {
-        var actualValue = response.jsonPath().getInt("id");
-        Assert.assertEquals(actualValue, 583231);
+    public void verifyFieldId() {
+        int actualID = response.jsonPath().getInt("id");
+        int expectedID = 583231;
+        Assert.assertEquals(actualID, expectedID, "Id is different");
     }
 
     @Test(priority = 10)
-    public void testFieldNodeId() {
-        Assert.assertEquals(response.jsonPath().get("node_id"), "MDQ6VXNlcjU4MzIzMQ==");
+    public void verifyFieldNodeId() {
+        String expectedNodeId = "MDQ6VXNlcjU4MzIzMQ==";
+        Assert.assertEquals(
+                response.jsonPath().get("node_id"),
+                expectedNodeId,
+                "Node Id is different");
     }
 
     @Test(priority = 10)
-    public void testFieldAvatarUrl() {
-        Assert.assertEquals(response.jsonPath().get("avatar_url"), "https://avatars.githubusercontent.com/u/583231?v=4");
+    public void verifyFieldAvatarUrl() {
+        String expectedAvatar = "https://avatars.githubusercontent.com/u/583231?v=4";
+        Assert.assertEquals(
+                response.jsonPath().get("avatar_url"),
+                expectedAvatar,
+                "Avatar URL is different");
     }
 
     @Test(priority = 10)
-    public void testFieldGravatar_id() {
-        Assert.assertEquals(response.jsonPath().get("gravatar_id"), "");
+    public void verifyFieldGravatar_id() {
+        String expectedGravatar = null;
+        Assert.assertEquals(
+                response.jsonPath().get("gravatar_id"),
+                expectedGravatar,
+                "Gravatar ID is different");
     }
 
     @Test(priority = 10)
-    public void testFieldUrl() {
-        Assert.assertEquals(response.jsonPath().get("url"), BASE_URL);
+    public void verifyFieldUrl() {
+        Assert.assertEquals(
+                response.jsonPath().get("url"),
+                BASE_URL,
+                "Base URL is different");
     }
 
     @Test(priority = 10)
-    public void testFieldHtmlUrl() {
-        Assert.assertEquals(response.jsonPath().get("html_url"), "https://github.com/octocat");
+    public void verifyFieldHtmlUrl() {
+        String expectedUrl = "https://github.com/octocat";
+        Assert.assertEquals(
+                response.jsonPath().get("html_url"),
+                expectedUrl,
+                "HTML URL is different");
     }
 
     @Test(priority = 10)
-    public void testFieldFollowersUrl() {
-        Assert.assertEquals(response.jsonPath().get("followers_url"), BASE_URL + "/followers");
+    public void verifyFieldFollowersUrl() {
+        String expectedFollowersUrl = BASE_URL + "/followers";
+        Assert.assertEquals(
+                response.jsonPath().get("followers_url"),
+                expectedFollowersUrl,
+                "Followers URL is different");
     }
 
     @Test(priority = 10)
-    public void testFieldFollowingUrl() {
-        Assert.assertEquals(response.jsonPath().get("following_url"), BASE_URL + "/following{/other_user}");
+    public void verifyFieldFollowingUrl() {
+        String expectedFollowingUrl = BASE_URL + "/following{/other_user}";
+        Assert.assertEquals(
+                response.jsonPath().get("following_url"),
+                expectedFollowingUrl,
+                "Following URL is different");
     }
 
     @Test(priority = 10)
-    public void testFieldGists() {
-        Assert.assertEquals(response.jsonPath().get("gists_url"), BASE_URL + "/gists{/gist_id}");
+    public void verifyFieldGists() {
+        String expectedGists = BASE_URL + "/gists{/gist_id}";
+        Assert.assertEquals(
+                response.jsonPath().get("gists_url"),
+                expectedGists,
+                "Gists is different");
     }
 
     @Test(priority = 10)
-    public void testFieldStarred() {
-        Assert.assertEquals(response.jsonPath().get("starred_url"), BASE_URL + "/starred{/owner}{/repo}");
+    public void verifyFieldStarred() {
+        String expectedStarred = BASE_URL + "/starred{/owner}{/repo}";
+        Assert.assertEquals(
+                response.jsonPath().get("starred_url"),
+                expectedStarred,
+                "Starred is different");
     }
 
     @Test(priority = 10)
-    public void testFieldSubscriptions() {
-        Assert.assertEquals(response.jsonPath().get("subscriptions_url"), BASE_URL + "/subscriptions");
+    public void verifyFieldSubscriptions() {
+        String expectedSubscriptions = BASE_URL + "/subscriptions";
+        Assert.assertEquals(
+                response.jsonPath().get("subscriptions_url"),
+                expectedSubscriptions,
+                "Subscriptions URL is different");
     }
 
     @Test(priority = 10)
-    public void testFieldOrganizations() {
-        Assert.assertEquals(response.jsonPath().get("organizations_url"), BASE_URL + "/orgs");
+    public void verifyFieldOrganizations() {
+        String expectedOrganizations = BASE_URL + "/orgs";
+        Assert.assertEquals(
+                response.jsonPath().get("organizations_url"),
+                expectedOrganizations,
+                "Organization URL is different");
     }
 
     @Test(priority = 10)
-    public void testFieldRepos() {
-        Assert.assertEquals(response.jsonPath().get("repos_url"), BASE_URL + "/repos");
+    public void verifyFieldRepos() {
+        String expectedRepos = BASE_URL + "/repos";
+        Assert.assertEquals(
+                response.jsonPath().get("repos_url"),
+                expectedRepos, "Repos URL is different");
     }
 
     @Test(priority = 10)
-    public void testFieldEvents() {
-        Assert.assertEquals(response.jsonPath().get("events_url"), BASE_URL + "/events{/privacy}");
+    public void verifyFieldEvents() {
+        String expectedEvents = BASE_URL + "/events{/privacy}";
+        Assert.assertEquals(
+                response.jsonPath().get("events_url"),
+                expectedEvents,
+                "Events URL is different");
     }
 
     @Test(priority = 10)
-    public void testFieldReceivedEventsUrl() {
-        Assert.assertEquals(response.jsonPath().get("received_events_url"), BASE_URL + "/received_events");
+    public void verifyFieldReceivedEventsUrl() {
+        String expectedReceivedEvents = BASE_URL + "/received_events";
+        Assert.assertEquals(
+                response.jsonPath().get("received_events_url"),
+                expectedReceivedEvents,
+                "Received Events URL is different");
     }
 
     @Test(priority = 10)
-    public void testFieldType() {
-        Assert.assertEquals(response.jsonPath().get("type"), "User");
+    public void verifyFieldType() {
+        String expectedType = "User";
+        Assert.assertEquals(
+                response.jsonPath().get("type"),
+                expectedType,
+                "Type of user is different");
     }
 
     @Test(priority = 10)
-    public void testFieldSiteAdmin() {
-        boolean actualValue = response.jsonPath().get("site_admin");
-        boolean expectedValue = false;
-        Assert.assertEquals(actualValue, expectedValue);
+    public void verifyFieldSiteAdmin() {
+        boolean actualSiteAdmin = response.jsonPath().get("site_admin");
+        boolean expectedSiteAdmin = false;
+        Assert.assertEquals(
+                actualSiteAdmin,
+                expectedSiteAdmin,
+                "Site is Admin type");
     }
 
     @Test(priority = 10)
-    public void testFieldName() {
-        Assert.assertEquals(response.jsonPath().get("name"), "The Octocat");
+    public void verifyFieldName() {
+        String expectedName = "The Octocat";
+        Assert.assertEquals(
+                response.jsonPath().get("name"),
+                expectedName,
+                "User Name is different");
     }
 
     @Test(priority = 10)
-    public void testFieldCompany() {
-        Assert.assertEquals(response.jsonPath().get("company"), "@github");
+    public void verifyFieldCompany() {
+        String expectedCompany = "@github";
+        Assert.assertEquals(
+                response.jsonPath().get("company"),
+                expectedCompany,
+                "Company is different");
     }
 
     @Test(priority = 10)
-    public void testFieldBlog() {
-        Assert.assertEquals(response.jsonPath().get("blog"), "https://github.blog");
+    public void verifyFieldBlog() {
+        String expectedBlog = "https://github.blog";
+        Assert.assertEquals(
+                response.jsonPath().get("blog"),
+                expectedBlog,
+                "Company is different");
     }
 
     @Test(priority = 10)
-    public void testFieldLocation() {
-        Assert.assertEquals(response.jsonPath().get("location"), "San Francisco");
+    public void verifyFieldLocation() {
+        String expectedLocation = "San Francisco";
+        Assert.assertEquals(
+                response.jsonPath().get("location"),
+                expectedLocation,
+                "Location is different");
     }
 
     @Test(priority = 10)
-    public void testFieldEmail() {
+    public void verifyFieldEmail() {
         Object expectedEmail = null;
-        Assert.assertEquals(response.jsonPath().get("email"), expectedEmail);
+        Assert.assertEquals(
+                response.jsonPath().get("email"),
+                expectedEmail,
+                "Email is not null");
     }
 
     @Test(priority = 10)
-    public void testFieldHireable() {
+    public void verifyFieldHireable() {
         Object expectedHireable = null;
-        Assert.assertEquals(response.jsonPath().get("hireable"), expectedHireable);
+        Assert.assertEquals(
+                response.jsonPath().get("hireable"),
+                expectedHireable,
+                "Field Hireable is not null");
     }
 
     @Test(priority = 10)
-    public void testFieldBio() {
+    public void verifyFieldBio() {
         Object expectedBio = null;
-        Assert.assertEquals(response.jsonPath().get("bio"), expectedBio);
+        Assert.assertEquals(
+                response.jsonPath().get("bio"),
+                expectedBio,
+                "Field Bio is not null");
     }
 
     @Test(priority = 10)
-    public void testFieldTwitter() {
+    public void verifyFieldTwitter() {
         Object expectedTwitter = null;
-        Assert.assertEquals(response.jsonPath().get("twitter_username"), expectedTwitter);
+        Assert.assertEquals(
+                response.jsonPath().get("twitter_username"),
+                expectedTwitter,
+                "Field Twitter is not null");
     }
 
     @Test(priority = 10)
-    public void testFieldPublicRepos() {
-        int actualValue = response.jsonPath().getInt("public_repos");
-        Assert.assertTrue(actualValue >= 0 && actualValue <= 100);
+    public void verifyFieldPublicRepos() {
+        int actualReposCount = response.jsonPath().getInt("public_repos");
+        Assert.assertTrue(actualReposCount >= 0 && actualReposCount <= 100);
     }
 
     @Test(priority = 10)
-    public void testFieldPublicGists() {
-        int actualValue = response.jsonPath().getInt("public_gists");
-        Assert.assertTrue(actualValue >= 0 && actualValue <= 100);
+    public void verifyFieldPublicGists() {
+        int actualGistsCount = response.jsonPath().getInt("public_gists");
+        Assert.assertTrue(actualGistsCount >= 0 && actualGistsCount <= 100);
     }
 
     @Test(priority = 10)
-    public void testFieldFollowers() {
-        int actualValue = response.jsonPath().getInt("followers");
-        Assert.assertTrue(actualValue >= 0 && actualValue <= 100000);
+    public void verifyFieldFollowers() {
+        int actualFollowersCount = response.jsonPath().getInt("followers");
+        Assert.assertTrue(actualFollowersCount >= 0 && actualFollowersCount <= 100000);
     }
 
     @Test(priority = 10)
-    public void testFieldFollowing() {
-        int actualValue = response.jsonPath().getInt("following");
-        Assert.assertTrue(actualValue >= 0 && actualValue <= 100000);
+    public void verifyFieldFollowing() {
+        int actualFollowingCount = response.jsonPath().getInt("following");
+        Assert.assertTrue(actualFollowingCount >= 0 && actualFollowingCount <= 100000);
     }
 
     @Test(priority = 10)
-    public void testFieldCreatedAt() {
+    public void verifyFieldCreatedAt() {
+        String expectedCreatedAt = "2011-01-25T18:44:36Z";
         Assert.assertEquals(
                 response.jsonPath().get("created_at"),
-                "2011-01-25T18:44:36Z",
+                expectedCreatedAt,
                 "The creation date is different from expected");
     }
 
     @Test(priority = 10)
-    public void testFieldUpdated() {
+    public void verifyFieldUpdated() {
         String actualDateValue = response.jsonPath().get("updated_at");
         String expectedFormatRegex = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z";
         Assert.assertTrue(

@@ -6,7 +6,7 @@ import io.restassured.specification.RequestSpecification;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class EndpointNegativeTest {
@@ -14,14 +14,14 @@ public class EndpointNegativeTest {
     private Response response = null;
     RequestSpecification requestSpecification = null;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         requestSpecification = RestAssured.given();
         requestSpecification.header("Content-Type", "application/json");
     }
 
     @Test(priority = 1)
-    public void testPutMethod() {
+    public void verifyPutMethod() {
         response = requestSpecification.get(BASE_URL + "/octocat");
         String responseBody = response.getBody().asString();
         JSONObject requestJSON;
@@ -34,11 +34,15 @@ public class EndpointNegativeTest {
         }
         requestSpecification.body(requestJSON.toString());
         response = requestSpecification.put(BASE_URL);
-        Assert.assertEquals(response.statusCode(), 404);
+        int expectedStatusCode = 404;
+        Assert.assertEquals(
+                response.statusCode(),
+                404,
+                "Status Code is " + response.statusCode() + " but should be: " + expectedStatusCode);
     }
 
     @Test(priority = 2)
-    public void testPostMethod() {
+    public void verifyPostMethod() {
         response = requestSpecification.get(BASE_URL + "/octocat");
         String responseBody = response.getBody().asString();
         JSONObject requestJSON;
@@ -49,12 +53,20 @@ public class EndpointNegativeTest {
         }
         requestSpecification.body(requestJSON.toString());
         response = requestSpecification.post(BASE_URL);
-        Assert.assertEquals(response.statusCode(), 404);
+        int expectedStatusCode = 404;
+        Assert.assertEquals(
+                response.statusCode(),
+                404,
+                "Status Code is " + response.statusCode() + " but should be: " + expectedStatusCode);
     }
 
     @Test(priority = 3)
-    public void testDeleteStatusCode() {
+    public void verifyDeleteStatusCode() {
         response = requestSpecification.delete(BASE_URL + "/octocat");
-        Assert.assertEquals(response.statusCode(), 404);
+        int expectedStatusCode = 404;
+        Assert.assertEquals(
+                response.statusCode(),
+                404,
+                "Status Code is " + response.statusCode() + " but should be: " + expectedStatusCode);
     }
 }
