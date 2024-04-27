@@ -1,6 +1,5 @@
 package octocat;
 
-import io.restassured.http.ContentType;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -29,11 +28,11 @@ public class EndpointTest {
 
     @Test(priority = 2)
     public void verifyContentType() {
-        String expectedContentType = "application/json";
+        String expectedContentType = "application/json; charset=utf-8";
         Assert.assertEquals(
-                ContentType.JSON.toString(),
+                response.contentType(),
                 expectedContentType,
-                "Content-Type is not JSON"
+                "Content-Type is not application/json"
         );
     }
 
@@ -51,14 +50,17 @@ public class EndpointTest {
         String expectedLogin = "octocat";
         Assert.assertEquals(response.jsonPath().get("login"),
                 expectedLogin,
-                "Login differs");
+                "Login is different than expected");
     }
 
     @Test(priority = 5)
     public void verifyFieldId() {
         int actualID = response.jsonPath().getInt("id");
         int expectedID = 583231;
-        Assert.assertEquals(actualID, expectedID, "Id is different");
+        Assert.assertEquals(
+                actualID,
+                expectedID,
+                "Id is different than expected");
     }
 
     @Test(priority = 10)
@@ -67,7 +69,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("node_id"),
                 expectedNodeId,
-                "Node Id is different");
+                "Node Id is different than expected");
     }
 
     @Test(priority = 10)
@@ -76,16 +78,16 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("avatar_url"),
                 expectedAvatar,
-                "Avatar URL is different");
+                "Avatar URL is different than expected");
     }
 
     @Test(priority = 10)
     public void verifyFieldGravatar_id() {
-        String expectedGravatar = null;
+        String expectedGravatar = "";
         Assert.assertEquals(
                 response.jsonPath().get("gravatar_id"),
                 expectedGravatar,
-                "Gravatar ID is different");
+                "Gravatar ID is different than expected");
     }
 
     @Test(priority = 10)
@@ -102,7 +104,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("html_url"),
                 expectedUrl,
-                "HTML URL is different");
+                "HTML URL is different than expected");
     }
 
     @Test(priority = 10)
@@ -111,7 +113,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("followers_url"),
                 expectedFollowersUrl,
-                "Followers URL is different");
+                "Followers URL is different than expected");
     }
 
     @Test(priority = 10)
@@ -120,7 +122,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("following_url"),
                 expectedFollowingUrl,
-                "Following URL is different");
+                "Following URL is different than expected");
     }
 
     @Test(priority = 10)
@@ -129,7 +131,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("gists_url"),
                 expectedGists,
-                "Gists is different");
+                "Gists is different than expected");
     }
 
     @Test(priority = 10)
@@ -138,7 +140,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("starred_url"),
                 expectedStarred,
-                "Starred is different");
+                "Starred is different than expected");
     }
 
     @Test(priority = 10)
@@ -147,7 +149,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("subscriptions_url"),
                 expectedSubscriptions,
-                "Subscriptions URL is different");
+                "Subscriptions URL is different than expected");
     }
 
     @Test(priority = 10)
@@ -156,7 +158,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("organizations_url"),
                 expectedOrganizations,
-                "Organization URL is different");
+                "Organization URL is different than expected");
     }
 
     @Test(priority = 10)
@@ -164,7 +166,7 @@ public class EndpointTest {
         String expectedRepos = BASE_URL + "/repos";
         Assert.assertEquals(
                 response.jsonPath().get("repos_url"),
-                expectedRepos, "Repos URL is different");
+                expectedRepos, "Repos URL is different than expected");
     }
 
     @Test(priority = 10)
@@ -173,7 +175,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("events_url"),
                 expectedEvents,
-                "Events URL is different");
+                "Events URL is different than expected");
     }
 
     @Test(priority = 10)
@@ -182,7 +184,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("received_events_url"),
                 expectedReceivedEvents,
-                "Received Events URL is different");
+                "Received Events URL is different than expected");
     }
 
     @Test(priority = 10)
@@ -191,7 +193,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("type"),
                 expectedType,
-                "Type of user is different");
+                "Type of user is different than expected");
     }
 
     @Test(priority = 10)
@@ -201,7 +203,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 actualSiteAdmin,
                 expectedSiteAdmin,
-                "Site is Admin type");
+                "Site Admin type is not " + expectedSiteAdmin);
     }
 
     @Test(priority = 10)
@@ -210,7 +212,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("name"),
                 expectedName,
-                "User Name is different");
+                "User Name is different than expected");
     }
 
     @Test(priority = 10)
@@ -219,7 +221,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("company"),
                 expectedCompany,
-                "Company is different");
+                "Company is different than expected");
     }
 
     @Test(priority = 10)
@@ -228,7 +230,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("blog"),
                 expectedBlog,
-                "Company is different");
+                "Company is different than expected");
     }
 
     @Test(priority = 10)
@@ -237,7 +239,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("location"),
                 expectedLocation,
-                "Location is different");
+                "Location is different than expected");
     }
 
     @Test(priority = 10)
@@ -246,7 +248,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("email"),
                 expectedEmail,
-                "Email is not null");
+                "Email value is not " + expectedEmail);
     }
 
     @Test(priority = 10)
@@ -255,7 +257,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("hireable"),
                 expectedHireable,
-                "Field Hireable is not null");
+                "Hireable value is not " + expectedHireable);
     }
 
     @Test(priority = 10)
@@ -264,7 +266,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("bio"),
                 expectedBio,
-                "Field Bio is not null");
+                "Bio value is not " + expectedBio);
     }
 
     @Test(priority = 10)
@@ -273,7 +275,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("twitter_username"),
                 expectedTwitter,
-                "Field Twitter is not null");
+                "Twitter value is not " + expectedTwitter);
     }
 
     @Test(priority = 10)
@@ -306,7 +308,7 @@ public class EndpointTest {
         Assert.assertEquals(
                 response.jsonPath().get("created_at"),
                 expectedCreatedAt,
-                "The creation date is different from expected");
+                "The creation date is different than expected");
     }
 
     @Test(priority = 10)
